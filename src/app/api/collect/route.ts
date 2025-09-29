@@ -1,7 +1,7 @@
 // app/api/collect/route.ts
 import { NextResponse } from "next/server";
 import connectPromise from "@/lib/mongodb";
-import { Visitor } from "@/models/Visitor";
+import Visitor from "@/models/Visitor";
 
 function getClientIp(req: Request) {
   const xf = req.headers.get("x-forwarded-for");

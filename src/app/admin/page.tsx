@@ -1,6 +1,6 @@
 // app/admin/page.tsx
 import connectPromise from "@/lib/mongodb";
-import { Visitor } from "@/models/Visitor";
+import Visitor from "@/models/Visitor";
 import { Address } from "@/models/Address";
 import { User } from "@/models/User";
 import { cookies } from "next/headers";

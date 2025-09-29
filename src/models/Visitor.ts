@@ -45,5 +45,6 @@ const VisitorSchema = new Schema<IVisitor>({
 });
 
 // 3. Type-safe model export
-export const Visitor: Model<IVisitor> =
+const Visitor: Model<IVisitor> =
   mongoose.models.Visitor || mongoose.model<IVisitor>("Visitor", VisitorSchema);
+export default Visitor;
