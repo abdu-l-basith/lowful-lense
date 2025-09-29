@@ -1,8 +1,8 @@
 // app/admin/page.tsx
 import connectPromise from "@/lib/mongodb";
-import Visitor from "@/models/Visitor";
-import Address from "@/models/Address";
-import User from "@/models/User";
+import { Visitor } from "@/models/Visitor";
+import { Address } from "@/models/Address";
+import { User } from "@/models/User";
 import { cookies } from "next/headers";
 import AdminLogin from "./AdminLogin";
 import LogoutButton from "./LogoutButton";
@@ -22,7 +22,7 @@ function MapLink({ lat, lon }: { lat: number; lon: number }) {
 }
 
 export default async function AdminPage() {
-  const cookieStore = cookies();
+  const cookieStore = await cookies();
   const isAdmin = cookieStore.get("admin_auth")?.value === "1";
   if (!isAdmin) return <main className="min-h-screen p-6"><AdminLogin /></main>;
 

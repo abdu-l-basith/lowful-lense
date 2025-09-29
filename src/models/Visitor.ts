@@ -1,7 +1,29 @@
-// models/Visitor.ts
-import mongoose, { Schema } from "mongoose";
+import mongoose, { Schema, Document, Model } from "mongoose";
 
-const VisitorSchema = new Schema({
+// 1. Define a TypeScript interface for the Visitor
+export interface IVisitor extends Document {
+  receivedAt: Date;
+  clientIp?: string;
+  userAgent?: string;
+  platform?: string;
+  languages?: string;
+  timezone?: string;
+  screen?: string;
+  colorDepth?: number;
+  pixelRatio?: number;
+  fingerprint?: string;
+  localIPs?: string[];
+  raw?: any;
+  latitude?: number;
+  longitude?: number;
+  latitude_rounded?: number;
+  longitude_rounded?: number;
+  accuracy?: number;
+  locationConsent?: boolean;
+}
+
+// 2. Create the schema
+const VisitorSchema = new Schema<IVisitor>({
   receivedAt: { type: Date, default: () => new Date() },
   clientIp: String,
   userAgent: String,
@@ -20,8 +42,8 @@ const VisitorSchema = new Schema({
   longitude_rounded: Number,
   accuracy: Number,
   locationConsent: Boolean,
-
 });
 
-export default (mongoose.models.Visitor as mongoose.Model<any>) ||
-  mongoose.model("Visitor", VisitorSchema);
+// 3. Type-safe model export
+export const Visitor: Model<IVisitor> =
+  mongoose.models.Visitor || mongoose.model<IVisitor>("Visitor", VisitorSchema);
