@@ -134,7 +134,7 @@ File a Complaint Online<br/>
 
 Visit the official National Cyber Crime Reporting Portal: https://cybercrime.gov.in<br/>
 
-Choose "Report Women/Child Related Crime" or "Report Other Cyber Crimes".<br/>
+Choose Report Women/Child Related Crime or Report Other Cyber Crimes.<br/>
 
 Police Complaint<br/>
 

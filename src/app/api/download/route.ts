@@ -1,7 +1,7 @@
 // app/api/admin/download/route.ts
 import { NextResponse } from "next/server";
 import connectPromise from "@/lib/mongodb";
-import Visitor from "@/models/Visitor";
+import { Visitor } from "@/models/Visitor";
 
 function isAdmin(req: Request){
   const cookie = req.headers.get("cookie") || "";
